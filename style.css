@@ -1,0 +1,583 @@
+/* 
+ * CipherIntel – Cryptographic Encryption Workstation
+ * Developed by: P. Mahan Sashank Yadav
+ * Cybersecurity Student | Chandigarh University
+ * 
+ * Stylesheet (style.css) — v1.1
+ */
+
+
+
+/* CSS Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Design Tokens (Emerald Slate Theme) */
+:root {
+  --bg-color: #06070a;
+  --surface-card: rgba(16, 22, 28, 0.7);
+  --surface-inner: rgba(24, 34, 46, 0.6);
+  --surface-hover: rgba(32, 46, 61, 0.8);
+  --border-color: rgba(255, 255, 255, 0.05);
+  --border-active: #0ea5e9;
+  
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-color: #0ea5e9;
+  
+  --status-secure: #10b981;
+  --status-warning: #f59e0b;
+  --status-insecure: #ef4444;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: var(--bg-color);
+  background-image: radial-gradient(circle at 50% 0%, #064e3b 0%, #06070a 75%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem 4rem;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ─── Header ──────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--surface-inner);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 0.45rem 1.25rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--status-secure);
+  box-shadow: 0 0 10px var(--status-secure);
+  animation: pulse-emerald 2s infinite;
+}
+
+@keyframes pulse-emerald {
+  0%   { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0.7); }
+  70%  { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0); }
+}
+
+.logo-badge span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-primary);
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 0.8rem;
+}
+
+h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, #a7f3d0 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ─── Dashboard Layout ────────────────────── */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ─── Cards ───────────────────────────────── */
+.card {
+  background-color: var(--surface-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 18px 40px rgba(16, 185, 129, 0.06);
+}
+
+.card-title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.6rem;
+}
+
+/* ─── Form Inputs ─────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.text-area {
+  width: 100%;
+  background-color: var(--surface-inner);
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.8rem 1rem;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  line-height: 1.5;
+}
+
+.text-area:focus {
+  border-color: var(--border-active);
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.2);
+}
+
+.text-area.monospace {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+}
+
+.select-input {
+  width: 100%;
+  background-color: var(--surface-inner);
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.8rem 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2em;
+}
+
+.select-input:focus {
+  border-color: var(--border-active);
+}
+
+.text-input {
+  flex: 1;
+  background-color: var(--surface-inner);
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  padding: 0.8rem 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.text-input:focus {
+  border-color: var(--border-active);
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.2);
+}
+
+/* ─── Buttons ─────────────────────────────── */
+.btn-primary {
+  width: 100%;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9rem 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: #0284c7;
+  box-shadow: 0 6px 24px rgba(14, 165, 233, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: var(--surface-inner);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface-hover);
+  border-color: rgba(14, 165, 233, 0.35);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Clear Workspace button — subtle red variant */
+.btn-clear {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: rgba(239, 68, 68, 0.6);
+  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-clear:hover {
+  border-color: rgba(239, 68, 68, 0.5);
+  color: var(--status-insecure);
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+/* ─── Mode Switcher Tabs ──────────────────── */
+.tab-row {
+  display: flex;
+  background-color: var(--surface-inner);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  border-radius: 8px;
+  padding: 0.6rem;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tab-btn.active {
+  background-color: var(--surface-hover);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* ─── Status Badges ───────────────────────── */
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.status-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+.status-badge.secure {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--status-secure);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-badge.warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--status-warning);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.status-badge.insecure {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--status-insecure);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* ─── Intel / Metrics Rows ────────────────── */
+.intel-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.82rem;
+}
+
+.intel-row:last-child {
+  border-bottom: none;
+}
+
+.intel-key {
+  color: var(--text-muted);
+}
+
+.intel-value {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ─── Algorithm Comparison Table ─────────── */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.compare-table th {
+  text-align: left;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding: 0 0 0.65rem 0;
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 700;
+}
+
+.compare-table td {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.compare-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Highlighted row for the active algorithm */
+.compare-table tr.active-row td {
+  color: var(--text-primary);
+}
+
+.compare-table tr.active-row .td-algo {
+  color: var(--status-secure);
+  font-weight: 700;
+}
+
+/* ─── How It Works: Usage Box ─────────────── */
+.desc-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+.usage-box {
+  background-color: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+
+.usage-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--status-secure);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.usage-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ─── Code Snippet Box ────────────────────── */
+.code-box {
+  background-color: var(--surface-inner);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+.code-box pre {
+  margin: 0;
+}
+
+/* ─── Output Action Buttons Row ───────────── */
+.output-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ─── Toast Notifications ─────────────────── */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #10161f;
+  border: 1px solid var(--status-secure);
+  color: var(--text-primary);
+  padding: 0.9rem 1.6rem;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+              transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Footer ──────────────────────────────── */
+footer {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+  padding-top: 2.5rem;
+}
+
+footer .author-credit {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin: 6px 0;
+}
+
+footer .cu-tag {
+  color: var(--status-secure);
+  font-weight: 600;
+}
+
+/* ─── Responsive ──────────────────────────── */
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 2rem 0.5rem 3rem;
+  }
+  h1 {
+    font-size: 2.2rem;
+  }
+  .output-actions {
+    flex-direction: column;
+  }
+}
