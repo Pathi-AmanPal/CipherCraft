@@ -8,18 +8,7 @@ An interactive, client-side cybersecurity tool designed to demonstrate, analyze,
 
 ---
 
-## 🚀 Screenshots
 
-### Dashboard Overview
-![CipherCraft Dashboard — Main encryption workstation with AES selected](screenshots/dashboard.png)
-
-### Encryption in Action (AES-256)
-![AES encryption demo — plaintext encrypted with metrics panel populated](screenshots/encryption_demo.png)
-
-### RSA Asymmetric Mode
-![RSA mode — public/private key input with RSA algorithm specifications](screenshots/rsa_mode.png)
-
----
 
 ## 🏗️ Project Architecture
 
