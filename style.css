@@ -1,12 +1,11 @@
 /* 
- * CipherIntel – Cryptographic Encryption Workstation
- * Developed by: P. Mahan Sashank Yadav
- * Cybersecurity Student | Chandigarh University
+ * CipherCraft – Cryptographic Encryption Workstation
+ * Redesigned for a Classic Minimalist & "Old Money" Heritage Aesthetic
  * 
- * Stylesheet (style.css) — v1.1
+ * Theme: Leather Desk Blotter & Parchment Ledger
+ * Fonts: Cormorant Garamond (Serif Headings/Labels) & Inter (UI Elements)
+ * Monospace: JetBrains Mono (Cryptographic Data)
  */
-
-
 
 /* CSS Resets */
 *, *::before, *::after {
@@ -15,41 +14,58 @@
   padding: 0;
 }
 
-/* Custom Design Tokens (Emerald Slate Theme) */
+/* Custom Design Tokens (Parchment & Leather Theme) */
 :root {
-  --bg-color: #06070a;
-  --surface-card: rgba(16, 22, 28, 0.7);
-  --surface-inner: rgba(24, 34, 46, 0.6);
-  --surface-hover: rgba(32, 46, 61, 0.8);
-  --border-color: rgba(255, 255, 255, 0.05);
-  --border-active: #0ea5e9;
+  --bg-dark-wood: #0f0b08;      /* Deep mahogany/chestnut wood edge */
+  --leather-green: #111f17;     /* British Racing Green leather blotter */
+  --parchment-paper: #faf6eb;   /* Warm, textured ivory parchment */
+  --parchment-darker: #ebdcb9;  /* Shaded parchment lines / folder tabs */
   
-  --text-primary: #f8fafc;
-  --text-muted: #94a3b8;
-  --accent-color: #0ea5e9;
+  --border-paper: #e1d2b7;      /* Soft parchment border */
+  --border-gold: #c5a880;       /* Antique Gold / Tooling */
   
-  --status-secure: #10b981;
-  --status-warning: #f59e0b;
-  --status-insecure: #ef4444;
+  --text-dark: #2b231c;         /* Sepia/Charcoal ink */
+  --text-muted: #7b6d58;        /* Faded sage/sepia for descriptions */
+  --text-gold: #c5a880;         /* Gold lettering for header */
+  
+  --status-secure: #4a6651;     /* Muted ink green */
+  --status-warning: #946c3d;    /* Muted ink ochre */
+  --status-insecure: #a35348;   /* Muted ink terracotta */
 }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
-  background-color: var(--bg-color);
-  background-image: radial-gradient(circle at 50% 0%, #064e3b 0%, #06070a 75%);
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark-wood);
+  /* Rich mahogany wood grain texture illusion */
+  background-image: 
+    linear-gradient(270deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.45) 100%),
+    radial-gradient(ellipse at center, rgba(115, 80, 56, 0.12) 0%, rgba(15, 11, 8, 0.8) 100%);
   background-attachment: fixed;
-  color: var(--text-primary);
+  color: #f5f2eb;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3rem 1rem 4rem;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Desk Blotter: The Leather Pad on the Wood Desk */
 .container {
   width: 100%;
   max-width: 1100px;
+  background-color: var(--leather-green);
+  border: 1px solid rgba(0,0,0,0.6);
+  border-radius: 4px;
+  padding: 3rem;
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.85),
+    inset 0 0 50px rgba(0, 0, 0, 0.5);
+  position: relative;
+  /* Luxury Gold-Tooled line inside the leather */
+  outline: 1px solid rgba(197, 168, 128, 0.22);
+  outline-offset: -12px;
 }
 
 /* ─── Header ──────────────────────────────── */
@@ -58,114 +74,149 @@ body {
   margin-bottom: 3.5rem;
 }
 
+/* Red Wax Seal Logo */
 .logo-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background-color: var(--surface-inner);
-  border: 1px solid var(--border-color);
-  border-radius: 999px;
-  padding: 0.45rem 1.25rem;
-  margin-bottom: 1.5rem;
-  backdrop-filter: blur(8px);
-}
-
-.logo-dot {
-  width: 8px;
-  height: 8px;
+  justify-content: center;
+  background-color: #8c2525;
+  background-image: radial-gradient(circle at 40% 40%, #9c3131 0%, #701d1d 80%);
+  border: 1px solid #631717;
   border-radius: 50%;
-  background-color: var(--status-secure);
-  box-shadow: 0 0 10px var(--status-secure);
-  animation: pulse-emerald 2s infinite;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 1.5rem;
+  position: relative;
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255,255,255,0.1),
+    inset 0 -3px 6px rgba(0,0,0,0.5);
+  cursor: default;
 }
 
-@keyframes pulse-emerald {
-  0%   { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0.7); }
-  70%  { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0); }
-}
-
-.logo-badge span {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  color: var(--text-primary);
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-h1 {
-  font-size: 3.2rem;
+.logo-badge::after {
+  content: 'CC';
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  margin-bottom: 0.8rem;
+  font-size: 1.6rem;
+  font-style: italic;
+  color: rgba(245, 242, 235, 0.8);
+  text-shadow: -1px -1px 1px rgba(0,0,0,0.4), 1px 1px 1px rgba(255,255,255,0.15);
 }
 
-h1 em {
-  font-style: normal;
-  background: linear-gradient(135deg, #a7f3d0 0%, #10b981 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.logo-badge span, .logo-dot {
+  display: none;
+}
+
+.header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.4rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #faf6eb;
+  margin: 0.5rem 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.header h1 em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--border-gold);
+}
+
+.header-divider {
+  width: 180px;
+  height: 1px;
+  background-color: rgba(197, 168, 128, 0.35);
+  margin: 1.25rem auto;
+  position: relative;
+}
+
+.header-divider::before {
+  content: '♦';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--leather-green);
+  color: var(--border-gold);
+  padding: 0 12px;
+  font-size: 0.85rem;
 }
 
 .subtitle {
-  color: var(--text-muted);
-  font-size: 1rem;
+  color: #a4b4ab;
+  font-size: 0.95rem;
+  font-weight: 400;
   max-width: 600px;
   margin: 0 auto;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* ─── Dashboard Layout ────────────────────── */
 .dashboard {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 1.5rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
   margin-bottom: 2rem;
 }
 
 .dashboard-column {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.5rem;
 }
 
-/* ─── Cards ───────────────────────────────── */
+/* ─── Ledger Cards (Parchment Paper Layout) ─── */
 .card {
-  background-color: var(--surface-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 1.75rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  background-color: var(--parchment-paper);
+  border: 1px solid var(--border-paper);
+  border-radius: 2px;
+  padding: 2.5rem 2.2rem;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.35),
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    inset 0 0 15px rgba(235, 220, 185, 0.2);
+  color: var(--text-dark);
+  position: relative;
 }
 
-.card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(16, 185, 129, 0.25);
-  box-shadow: 0 18px 40px rgba(16, 185, 129, 0.06);
+/* Stacked paper look */
+.card::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  right: 2px;
+  left: 2px;
+  height: 4px;
+  background: var(--parchment-paper);
+  border: 1px solid var(--border-paper);
+  border-top: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: -1;
 }
 
 .card-title {
-  font-size: 0.78rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #4a3e2e;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-paper);
+  padding-bottom: 0.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  margin-bottom: 1.25rem;
-  font-weight: 700;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 0.6rem;
+  letter-spacing: 0.05em;
 }
 
-/* ─── Form Inputs ─────────────────────────── */
+/* ─── Form Inputs (Ink / Ruled Paper Style) ─── */
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-group:last-child {
@@ -173,149 +224,172 @@ h1 em {
 }
 
 label {
-  font-size: 0.75rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--text-muted);
-  font-weight: 600;
+  color: #5a4d3c;
 }
 
 .text-area {
   width: 100%;
-  background-color: var(--surface-inner);
-  border: 1.5px solid var(--border-color);
-  border-radius: 10px;
-  color: var(--text-primary);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.9rem;
+  background-color: #faf6eb;
+  border: 1px solid #dcd3be;
+  border-radius: 2px;
+  color: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
   padding: 0.8rem 1rem;
   outline: none;
   resize: vertical;
-  min-height: 80px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  line-height: 1.5;
+  min-height: 90px;
+  transition: all 0.2s ease;
+  line-height: 1.6;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .text-area:focus {
-  border-color: var(--border-active);
-  box-shadow: 0 0 12px rgba(14, 165, 233, 0.2);
+  border-color: #a89470;
+  background-color: #fffdf9;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08), 0 0 4px rgba(168,148,112,0.15);
+}
+
+/* Ruled paper background logic for plaintext */
+#inputText {
+  background-image: linear-gradient(rgba(0,0,0,0) 96%, rgba(197, 168, 128, 0.15) 96%);
+  background-size: 100% 1.6rem;
+  line-height: 1.6rem;
+  padding-top: 0.5rem;
 }
 
 .text-area.monospace {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.85rem;
+  color: #3b2c25; /* dark brown ink */
 }
 
 .select-input {
   width: 100%;
-  background-color: var(--surface-inner);
-  border: 1.5px solid var(--border-color);
-  border-radius: 10px;
-  color: var(--text-primary);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.9rem;
+  background-color: #faf6eb;
+  border: 1px solid #dcd3be;
+  border-radius: 2px;
+  color: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
   padding: 0.8rem 1rem;
   outline: none;
   cursor: pointer;
-  transition: border-color 0.2s;
+  transition: all 0.2s ease;
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237b6d58' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1.2em;
+  background-position: right 1.1rem center;
+  background-size: 1.1em;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .select-input:focus {
-  border-color: var(--border-active);
+  border-color: #a89470;
 }
 
 .text-input {
   flex: 1;
-  background-color: var(--surface-inner);
-  border: 1.5px solid var(--border-color);
-  border-radius: 10px;
-  color: var(--text-primary);
+  background-color: #faf6eb;
+  border: 1px solid #dcd3be;
+  border-radius: 2px;
+  color: var(--text-dark);
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.9rem;
   padding: 0.8rem 1rem;
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .text-input:focus {
-  border-color: var(--border-active);
-  box-shadow: 0 0 12px rgba(14, 165, 233, 0.2);
+  border-color: #a89470;
 }
 
-/* ─── Buttons ─────────────────────────────── */
+/* ─── Buttons (Aged Brass & Bronze) ────────── */
 .btn-primary {
   width: 100%;
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 0.9rem 1.25rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  font-family: 'Space Grotesk', sans-serif;
+  background-color: #c0a57c; /* Muted Brass */
+  background-image: linear-gradient(180deg, #d3bc9b 0%, #ab8e64 100%);
+  color: #261f17;
+  border: 1px solid #917751;
+  border-radius: 2px;
+  padding: 0.95rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.25);
+  box-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: #0284c7;
-  box-shadow: 0 6px 24px rgba(14, 165, 233, 0.45);
-  transform: translateY(-1px);
+  background-color: #d2b994;
+  background-image: linear-gradient(180deg, #e4ceb1 0%, #ba9e74 100%);
+  border-color: #a88d63;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .btn-primary:active {
-  transform: scale(0.98);
+  transform: translateY(1px);
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
-  background-color: var(--surface-inner);
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  border-radius: 10px;
-  padding: 0.65rem 1rem;
+  background-color: #f1ebd8;
+  border: 1px solid #d2c7af;
+  color: #4a3e2e;
+  border-radius: 2px;
+  padding: 0.65rem 1.25rem;
   font-size: 0.78rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   white-space: nowrap;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .btn-secondary:hover {
-  background-color: var(--surface-hover);
-  border-color: rgba(14, 165, 233, 0.35);
-  color: #fff;
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.15);
-  transform: translateY(-1px);
+  background-color: #e8e2d4;
+  border-color: #b3a489;
+  color: #2b231c;
 }
 
-/* Clear Workspace button — subtle red variant */
+/* Clear Workspace button — hand-written terracotta/rust variant */
 .btn-clear {
   width: 100%;
   background: transparent;
-  border: 1px solid rgba(239, 68, 68, 0.2);
-  color: rgba(239, 68, 68, 0.6);
-  border-radius: 10px;
-  padding: 0.65rem 1rem;
+  border: 1px solid rgba(163, 83, 72, 0.25);
+  color: #a35348;
+  border-radius: 2px;
+  padding: 0.7rem 1.25rem;
   font-size: 0.78rem;
   font-weight: 600;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -323,83 +397,138 @@ label {
 }
 
 .btn-clear:hover {
-  border-color: rgba(239, 68, 68, 0.5);
-  color: var(--status-insecure);
-  background-color: rgba(239, 68, 68, 0.05);
+  border-color: #a35348;
+  color: #8c2525;
+  background-color: rgba(163, 83, 72, 0.05);
 }
 
-/* ─── Mode Switcher Tabs ──────────────────── */
+/* ─── Mode Switcher Index Card Tabs ───────── */
 .tab-row {
   display: flex;
-  background-color: var(--surface-inner);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 4px;
-  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-paper);
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 2rem;
+  gap: 0.35rem;
 }
 
 .tab-btn {
-  flex: 1;
-  background: none;
-  border: none;
+  background-color: #e8e2d4;
+  border: 1px solid #d2c7af;
+  border-bottom: none;
   color: var(--text-muted);
-  border-radius: 8px;
-  padding: 0.6rem;
+  border-radius: 4px 4px 0 0;
+  padding: 0.65rem 1.2rem;
   cursor: pointer;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
-  transition: background-color 0.2s, color 0.2s;
+  position: relative;
+  transition: all 0.2s ease;
+  margin-bottom: -2px;
+}
+
+.tab-btn:hover {
+  background-color: #f1ebd8;
+  color: var(--text-dark);
 }
 
 .tab-btn.active {
-  background-color: var(--surface-hover);
-  color: var(--text-primary);
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  background-color: var(--parchment-paper);
+  color: var(--text-dark);
+  border-color: var(--border-paper);
+  border-bottom: 2px solid var(--parchment-paper);
+  z-index: 2;
 }
 
-/* ─── Status Badges ───────────────────────── */
+/* ─── Reference Desk Index Card Tabs ──────── */
+.ref-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-paper);
+  margin-bottom: 1.5rem;
+  gap: 0.35rem;
+}
+
+.ref-tab-btn {
+  background-color: #e8e2d4;
+  border: 1px solid #d2c7af;
+  border-bottom: none;
+  color: var(--text-muted);
+  border-radius: 4px 4px 0 0;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.2s ease;
+  margin-bottom: -2px;
+}
+
+.ref-tab-btn:hover {
+  background-color: #f1ebd8;
+  color: var(--text-dark);
+}
+
+.ref-tab-btn.active {
+  background-color: var(--parchment-paper);
+  color: var(--text-dark);
+  border-color: var(--border-paper);
+  border-bottom: 2px solid var(--parchment-paper);
+  z-index: 2;
+}
+
+.ref-tab-content {
+  display: none;
+}
+
+.ref-tab-content.active {
+  display: block;
+}
+
+/* ─── Status Badges (Stamped Ink Look) ────── */
 .status-row {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .status-badge {
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
-  padding: 2px 8px;
-  border-radius: 999px;
+  padding: 3px 10px;
+  border-radius: 2px;
   letter-spacing: 0.05em;
 }
 
 .status-badge.secure {
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: #e5ede6;
   color: var(--status-secure);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid #c2d6c6;
 }
 
 .status-badge.warning {
-  background-color: rgba(245, 158, 11, 0.1);
+  background-color: #f7ede2;
   color: var(--status-warning);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  border: 1px solid #edd5be;
 }
 
 .status-badge.insecure {
-  background-color: rgba(239, 68, 68, 0.1);
+  background-color: #fcece9;
   color: var(--status-insecure);
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid #f5cfca;
 }
 
-/* ─── Intel / Metrics Rows ────────────────── */
+/* ─── Ledger Metric Rows ─────────────────── */
 .intel-row {
   display: flex;
   justify-content: space-between;
-  padding: 0.65rem 0;
-  border-bottom: 1px solid var(--border-color);
-  font-size: 0.82rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed var(--border-paper);
+  font-size: 0.85rem;
 }
 
 .intel-row:last-child {
@@ -408,36 +537,37 @@ label {
 
 .intel-key {
   color: var(--text-muted);
+  font-weight: 500;
 }
 
 .intel-value {
   font-family: 'JetBrains Mono', monospace;
-  color: var(--text-primary);
-  font-weight: 500;
+  color: var(--text-dark);
+  font-weight: 600;
 }
 
-/* ─── Algorithm Comparison Table ─────────── */
+/* ─── Typewriter Comparison Table ────────── */
 .compare-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
 }
 
 .compare-table th {
   text-align: left;
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
-  padding: 0 0 0.65rem 0;
-  border-bottom: 1px solid var(--border-color);
+  color: #4a3e2e;
+  padding: 0 0 0.8rem 0;
+  border-bottom: 2px solid var(--border-paper);
   font-weight: 700;
 }
 
 .compare-table td {
-  padding: 0.6rem 0;
-  border-bottom: 1px solid var(--border-color);
-  color: var(--text-muted);
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #ebdcb9;
+  color: #5a4d3c;
   font-family: 'JetBrains Mono', monospace;
 }
 
@@ -445,60 +575,63 @@ label {
   border-bottom: none;
 }
 
-/* Highlighted row for the active algorithm */
+/* Highlighted row for active cipher */
 .compare-table tr.active-row td {
-  color: var(--text-primary);
+  color: var(--text-dark);
+  background-color: rgba(197, 168, 128, 0.08);
 }
 
 .compare-table tr.active-row .td-algo {
-  color: var(--status-secure);
+  color: #8c2525; /* Stamped ink red */
   font-weight: 700;
 }
 
-/* ─── How It Works: Usage Box ─────────────── */
+/* ─── How It Works: Stamped Clip Box ──────── */
 .desc-text {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.55;
-  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #4d4235;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
 }
 
 .usage-box {
-  background-color: rgba(16, 185, 129, 0.05);
-  border: 1px solid rgba(16, 185, 129, 0.15);
-  border-radius: 10px;
-  padding: 0.85rem 1rem;
+  background-color: rgba(197, 168, 128, 0.05);
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  border-radius: 2px;
+  padding: 1rem;
+  box-shadow: inset 0 0 10px rgba(235, 220, 185, 0.1);
 }
 
 .usage-label {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--status-secure);
+  color: #8c2525; /* Red warning label ink */
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .usage-text {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  line-height: 1.5;
+  font-size: 0.82rem;
+  color: #5a4d3c;
+  line-height: 1.6;
 }
 
-/* ─── Code Snippet Box ────────────────────── */
+/* ─── Code Snippet Box (Sepia Code) ────────── */
 .code-box {
-  background-color: var(--surface-inner);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 1rem;
+  background-color: #faf6eb;
+  border: 1px solid #dcd3be;
+  border-radius: 2px;
+  padding: 1.25rem;
   overflow-x: auto;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  line-height: 1.5;
-  color: #cbd5e1;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #3b2c25; /* Dark brown ink */
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .code-box pre {
@@ -512,18 +645,20 @@ label {
   margin-top: 8px;
 }
 
-/* ─── Toast Notifications ─────────────────── */
+/* ─── Toast Notifications (Stamped Telegram) ─ */
 .toast {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background-color: #10161f;
-  border: 1px solid var(--status-secure);
-  color: var(--text-primary);
-  padding: 0.9rem 1.6rem;
-  border-radius: 10px;
-  font-size: 0.82rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  bottom: 2.5rem;
+  right: 2.5rem;
+  background-color: var(--parchment-paper);
+  border: 2px solid #8c2525; /* Urgent Telegram stamp red */
+  color: var(--text-dark);
+  padding: 1.1rem 1.85rem;
+  border-radius: 2px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -543,23 +678,23 @@ label {
 /* ─── Footer ──────────────────────────────── */
 footer {
   text-align: center;
-  margin-top: 4rem;
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  margin-top: 4.5rem;
+  font-size: 0.78rem;
+  color: #7b8f84;
   line-height: 1.6;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid rgba(197, 168, 128, 0.25);
   width: 100%;
   padding-top: 2.5rem;
 }
 
 footer .author-credit {
-  color: var(--text-primary);
-  font-weight: 600;
-  margin: 6px 0;
+  color: #faf6eb;
+  font-weight: 500;
+  margin: 8px 0;
 }
 
 footer .cu-tag {
-  color: var(--status-secure);
+  color: var(--border-gold);
   font-weight: 600;
 }
 
@@ -568,14 +703,17 @@ footer .cu-tag {
   .dashboard {
     grid-template-columns: 1fr;
   }
+  .container {
+    padding: 2rem 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
   body {
     padding: 2rem 0.5rem 3rem;
   }
-  h1 {
-    font-size: 2.2rem;
+  .header h1 {
+    font-size: 2.3rem;
   }
   .output-actions {
     flex-direction: column;

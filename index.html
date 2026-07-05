@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CipherIntel: An interactive, client-side cryptographic workstation to study and compare AES-256, DES, and RSA encryption algorithms securely in the browser.">
-  <title>CipherIntel – Cryptographic Encryption Workstation</title>
+  <meta name="description" content="CipherCraft: An interactive, client-side cryptographic workstation to study and compare AES-256, DES, and RSA encryption algorithms securely in the browser.">
+  <title>CipherCraft – Cryptographic Encryption Workstation</title>
 
-  <!-- Google Fonts: Space Grotesk + JetBrains Mono -->
+  <!-- Google Fonts: Cormorant Garamond (Serif Heading) & Inter (UI/Body Sans-Serif) + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Tabler Icons (used for lock, copy, check icons on buttons) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -28,9 +28,10 @@
     <header class="header">
       <div class="logo-badge">
         <div class="logo-dot"></div>
-        <span>CipherIntel v1.1</span>
+        <span>CipherCraft v1.1</span>
       </div>
       <h1>Cryptographic<br><em>Encryption Workstation</em></h1>
+      <div class="header-divider"></div>
       <p class="subtitle">Secure, compare, and study symmetric (AES, DES) and asymmetric (RSA) algorithms in a client-side sandbox environment.</p>
     </header>
 
@@ -146,85 +147,91 @@
 
       </div>
 
-      <!-- Right Column: Educational Intelligence Panel -->
+      <!-- Right Column: Educational Intelligence Panel (Reference Desk) -->
       <div class="dashboard-column">
         
-        <!-- Algorithm Specifications Panel -->
         <section class="card">
-          <div class="card-title">Algorithm Specifications</div>
+          <div class="card-title">Reference Desk</div>
           
-          <div class="status-row">
-            <span class="info-key">Security Rating:</span>
-            <span class="status-badge secure" id="intelStatus">Secure (Standard)</span>
+          <!-- Tab Navigation -->
+          <div class="ref-tabs">
+            <button class="ref-tab-btn active" onclick="switchRefTab('specs')">Specifications</button>
+            <button class="ref-tab-btn" onclick="switchRefTab('compare')">Comparison</button>
+            <button class="ref-tab-btn" onclick="switchRefTab('implementation')">Implementation</button>
           </div>
 
-          <div class="intel-row">
-            <span class="intel-key">Cipher Classification</span>
-            <span class="intel-value" id="intelType">Symmetric (Same key)</span>
-          </div>
-          <div class="intel-row">
-            <span class="intel-key">Key Sizes Supported</span>
-            <span class="intel-value" id="intelSize">128, 192, or 256 bits</span>
-          </div>
-          <div class="intel-row">
-            <span class="intel-key">Processing Overhead</span>
-            <span class="intel-value" id="intelSpeed">Fast (Hardware Accelerated)</span>
-          </div>
-        </section>
+          <!-- Tab Content: Specifications -->
+          <div class="ref-tab-content active" id="refTabSpecs">
+            <div class="status-row">
+              <span class="info-key">Security Rating:</span>
+              <span class="status-badge secure" id="intelStatus">Secure (Standard)</span>
+            </div>
 
-        <!-- Algorithm Comparison Panel -->
-        <section class="card">
-          <div class="card-title">Algorithm Comparison</div>
-          <table class="compare-table">
-            <thead>
-              <tr>
-                <th>Algorithm</th>
-                <th>Security</th>
-                <th>Speed</th>
-                <th>Key Size</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr id="cmpRowAES" class="active-row">
-                <td class="td-algo">AES</td>
-                <td><span class="status-badge secure">High</span></td>
-                <td>Fast</td>
-                <td>128/192/256-bit</td>
-              </tr>
-              <tr id="cmpRowDES">
-                <td class="td-algo">DES</td>
-                <td><span class="status-badge insecure">Low</span></td>
-                <td>Medium</td>
-                <td>56-bit</td>
-              </tr>
-              <tr id="cmpRowRSA">
-                <td class="td-algo">RSA</td>
-                <td><span class="status-badge secure">High</span></td>
-                <td>Slow</td>
-                <td>2048+ bits</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <!-- Dynamic Cipher Concept Description -->
-        <section class="card">
-          <div class="card-title">How It Works</div>
-          <p class="desc-text" id="intelDesc">
-            Advanced Encryption Standard (AES) is the global standard for symmetric encryption. It uses substitution-permutation networks and is extremely resistant to brute force, making it the choice for defense protocols, HTTPS, and file encryption.
-          </p>
-          <div class="usage-box" id="intelUsage">
-            <div class="usage-label"><i class="ti ti-world"></i> Real-World Usage</div>
-            <div class="usage-text" id="intelUsageText">HTTPS/TLS, VPNs, Full-Disk Encryption, File Storage, Wi-Fi Security (WPA2/3)</div>
+            <div class="intel-row">
+              <span class="intel-key">Cipher Classification</span>
+              <span class="intel-value" id="intelType">Symmetric (Same key)</span>
+            </div>
+            <div class="intel-row">
+              <span class="intel-key">Key Sizes Supported</span>
+              <span class="intel-value" id="intelSize">128, 192, or 256 bits</span>
+            </div>
+            <div class="intel-row">
+              <span class="intel-key">Processing Overhead</span>
+              <span class="intel-value" id="intelSpeed">Fast (Hardware Accelerated)</span>
+            </div>
+            
+            <div style="margin-top: 1.5rem;">
+              <p class="desc-text" id="intelDesc">
+                Advanced Encryption Standard (AES) is the global standard for symmetric encryption. It uses substitution-permutation networks and is extremely resistant to brute force, making it the choice for defense protocols, HTTPS, and file encryption.
+              </p>
+              <div class="usage-box" id="intelUsage">
+                <div class="usage-label"><i class="ti ti-world"></i> Real-World Usage</div>
+                <div class="usage-text" id="intelUsageText">HTTPS/TLS, VPNs, Full-Disk Encryption, File Storage, Wi-Fi Security (WPA2/3)</div>
+              </div>
+            </div>
           </div>
-        </section>
 
-        <!-- Python Reference Code Snip -->
-        <section class="card">
-          <div class="card-title">Implementation Snippet (Python)</div>
-          <div class="code-box">
-            <pre><code id="intelCode"># Code snippet will load here...</code></pre>
+          <!-- Tab Content: Comparison -->
+          <div class="ref-tab-content" id="refTabCompare">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Algorithm</th>
+                  <th>Security</th>
+                  <th>Speed</th>
+                  <th>Key Size</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="cmpRowAES" class="active-row">
+                  <td class="td-algo">AES</td>
+                  <td><span class="status-badge secure">High</span></td>
+                  <td>Fast</td>
+                  <td>128/192/256-bit</td>
+                </tr>
+                <tr id="cmpRowDES">
+                  <td class="td-algo">DES</td>
+                  <td><span class="status-badge insecure">Low</span></td>
+                  <td>Medium</td>
+                  <td>56-bit</td>
+                </tr>
+                <tr id="cmpRowRSA">
+                  <td class="td-algo">RSA</td>
+                  <td><span class="status-badge secure">High</span></td>
+                  <td>Slow</td>
+                  <td>2048+ bits</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+
+          <!-- Tab Content: Implementation -->
+          <div class="ref-tab-content" id="refTabImplementation">
+            <div class="code-box">
+              <pre><code id="intelCode"># Code snippet will load here...</code></pre>
+            </div>
+          </div>
+
         </section>
 
       </div>
@@ -239,7 +246,7 @@
     <!-- Footer Section -->
     <footer>
       <div>Local browser encryption sandbox. All computations are executed securely on client-side resources.</div>
-      <div class="author-credit">Developed by P. Mahan Sashank Yadav</div>
+      <div class="author-credit">Developed by Pathi Aman Pal</div>
       <div>
         Cybersecurity Intern | <span class="cu-tag">Chandigarh University</span>
       </div>

@@ -1,8 +1,8 @@
-# CipherIntel: Cryptographic Encryption Workstation
+# CipherCraft: Cryptographic Encryption Workstation
 
 An interactive, client-side cybersecurity tool designed to demonstrate, analyze, and compare symmetric (AES, DES) and asymmetric (RSA) cryptographic algorithms — all running locally in the browser with zero server dependency.
 
-**Developed by**: P. Mahan Sashank Yadav  
+**Developed by**: Pathi Aman Pal  
 **Affiliation**: Cybersecurity Student, Chandigarh University  
 **Project Scope**: Pinnacle Labs CS Internship Submission
 
@@ -11,7 +11,7 @@ An interactive, client-side cybersecurity tool designed to demonstrate, analyze,
 ## 🚀 Screenshots
 
 ### Dashboard Overview
-![CipherIntel Dashboard — Main encryption workstation with AES selected](screenshots/dashboard.png)
+![CipherCraft Dashboard — Main encryption workstation with AES selected](screenshots/dashboard.png)
 
 ### Encryption in Action (AES-256)
 ![AES encryption demo — plaintext encrypted with metrics panel populated](screenshots/encryption_demo.png)
@@ -24,7 +24,7 @@ An interactive, client-side cybersecurity tool designed to demonstrate, analyze,
 ## 🏗️ Project Architecture
 
 ```
-CipherIntel/
+CipherCraft/
 ├── index.html          # Semantic HTML layout — all UI sections
 ├── style.css           # Emerald Slate dark theme, responsive grid
 ├── app.js              # All logic: encryption, metrics, UI state
@@ -126,7 +126,7 @@ Asymmetric encryption uses a mathematically linked keypair:
 
 ## 📝 License & Ownership
 
-Copyright © 2026 P. Mahan Sashank Yadav.  
+Copyright © 2026 Pathi Aman Pal.  
 Developed as an educational demonstration project for the Pinnacle Labs CS Internship. All code is modularized and documented for readability and educational review.
 
 ---

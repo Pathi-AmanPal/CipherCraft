@@ -1,6 +1,6 @@
 /**
- * CipherIntel – Cryptographic Encryption Workstation
- * Developed by: P. Mahan Sashank Yadav
+ * CipherCraft – Cryptographic Encryption Workstation
+ * Developed by: Pathi Aman Pal
  * Cybersecurity Student | Chandigarh University
  *
  * Application Logic (app.js) — v1.1
@@ -12,8 +12,6 @@
  *   - Added live Encryption Metrics panel
  *   - Enhanced educational sidebar with real-world usage examples
  */
-
-
 // ─────────────────────────────────────────────
 //  GLOBAL STATE
 // ─────────────────────────────────────────────
@@ -114,6 +112,44 @@ function updateComparisonHighlight(algo) {
   if (rowMap[algo]) {
     document.getElementById(rowMap[algo]).classList.add('active-row');
   }
+}
+
+
+// ─────────────────────────────────────────────
+//  REFERENCE DESK TAB SWITCHER
+// ─────────────────────────────────────────────
+
+/**
+ * Switches the Reference Desk panel tabs.
+ * Updates active class on buttons and showing/hiding content blocks.
+ */
+function switchRefTab(tabName) {
+  const buttons = document.querySelectorAll('.ref-tab-btn');
+  const contents = document.querySelectorAll('.ref-tab-content');
+
+  const tabMap = {
+    specs: 'refTabSpecs',
+    compare: 'refTabCompare',
+    implementation: 'refTabImplementation'
+  };
+
+  const activeId = tabMap[tabName];
+
+  buttons.forEach(btn => {
+    if (btn.getAttribute('onclick').includes(tabName)) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  contents.forEach(content => {
+    if (content.id === activeId) {
+      content.classList.add('active');
+    } else {
+      content.classList.remove('active');
+    }
+  });
 }
 
 
@@ -392,7 +428,7 @@ function copyOutput() {
  * Downloads the current output text as a .txt file.
  * The filename includes today's date for easy identification.
  *
- * Filename format: cipherintel-output-yyyy-mm-dd.txt
+ * Filename format: ciphercraft-output-yyyy-mm-dd.txt
  */
 function downloadOutput() {
   const outputText = document.getElementById('outputText').value;
@@ -407,7 +443,7 @@ function downloadOutput() {
   const yyyy     = today.getFullYear();
   const mm       = String(today.getMonth() + 1).padStart(2, '0');
   const dd       = String(today.getDate()).padStart(2, '0');
-  const filename = `cipherintel-output-${yyyy}-${mm}-${dd}.txt`;
+  const filename = `ciphercraft-output-${yyyy}-${mm}-${dd}.txt`;
 
   // Create a temporary invisible anchor to trigger the browser download
   const blob = new Blob([outputText], { type: 'text/plain' });
